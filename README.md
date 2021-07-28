@@ -5,14 +5,37 @@
 
 With .Net 5, developing RESTful API it just got a whole lot easier and better by allowing you to focus more on your bussiness logics and creating an Endpoint with few lines of code
 
-- OpenAPI Support and generate Swagger Docs or another Services like Entity framework.
+- OpenAPI Specification on by default.
+- Azure API Management Import
+- Better launch experience for web API projects
+- Performance improvements like HTTP/2 and Docker Containers
+- Authentication and authorization:
+  - Azure Active Directory authentication with Microsoft.Identity.Web
+  - Allow anonymous access to an endpoint
+  - Custom handling of authorization failures
+  - Authorization when using endpoint routing
+- API improvements
+  - JSON extension methods for HttpRequest and HttpResponse
+  - System.Diagnostics.Activity
+  - FromBodyAttribute
+- Miscellaneous improvements
+  - Control Startup class activation
+  - Auto refresh with dotnet watch 
+  - Console Logger Formatter
+  - JSON Console Logger
+
+Source: https://docs.microsoft.com/en-us/aspnet/core/release-notes/aspnetcore-5.0?view=aspnetcore-5.0
 
 ## Dependency
 
 We need execute the next command for add dependency, for this example we add the dependency of Entity Framework Core
-
+For our Project:
 ```
 dotnet add package Microsoft.EntityFrameworkCore
+```
+By default, but optional:
+```
+dotnet add packag Swashbuckle.AspNetCore
 ```
 
 ## Advantages/Disadvantages
