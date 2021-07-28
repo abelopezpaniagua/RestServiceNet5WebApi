@@ -213,11 +213,24 @@
 		},
 		{
 			"name": "Delete",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Validating delete\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "https://localhost:5001/api/v1/Customer/DeleteCustomer/3",
+					"raw": "https://localhost:5001/api/v1/Customer/DeleteCustomer?Id=3",
 					"protocol": "https",
 					"host": [
 						"localhost"
@@ -227,8 +240,13 @@
 						"api",
 						"v1",
 						"Customer",
-						"DeleteCustomer",
-						"3"
+						"DeleteCustomer"
+					],
+					"query": [
+						{
+							"key": "Id",
+							"value": "3"
+						}
 					]
 				}
 			},
