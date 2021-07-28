@@ -35,7 +35,7 @@ dotnet add package Microsoft.EntityFrameworkCore
 ```
 By default, but optional:
 ```
-dotnet add packag Swashbuckle.AspNetCore
+dotnet add package Swashbuckle.AspNetCore
 ```
 
 ## Advantages/Disadvantages
