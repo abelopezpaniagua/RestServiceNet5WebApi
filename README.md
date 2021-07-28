@@ -5,9 +5,7 @@
 
 With .Net 5, developing RESTful API it just got a whole lot easier and better by allowing you to focus more on your bussiness logics and creating an Endpoint with few lines of code
 
-- OpenAPI Support and generate Swagger Docs.
-
-
+- OpenAPI Support and generate Swagger Docs or another Services like Entity framework.
 
 ## Dependency
 
