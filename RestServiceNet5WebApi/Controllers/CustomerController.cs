@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace RestServiceNet5WebApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/v1/[controller]")]
     [ApiController]
     public class CustomerController : ControllerBase
     {
