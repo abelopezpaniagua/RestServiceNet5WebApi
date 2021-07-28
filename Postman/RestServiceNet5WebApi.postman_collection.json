@@ -15,6 +15,8 @@
 							"pm.test(\"Request a valid id\", function () {",
 							"    pm.response.to.have.status(200);",
 							"});",
+							"",
+							"",
 							""
 						],
 						"type": "text/javascript"
@@ -49,6 +51,58 @@
 		},
 		{
 			"name": "GetAllCustomer",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const schema = {",
+							"  \"type\": \"array\",",
+							"  \"items\": [",
+							"    {",
+							"      \"properties\": {",
+							"        \"customerName\": {",
+							"          \"type\": \"string\"",
+							"        },",
+							"        \"purchasesProduct\": {",
+							"          \"type\": \"string\"",
+							"        },",
+							"        \"paymentType\": {",
+							"          \"type\": \"string\"",
+							"        },",
+							"        \"id\": {",
+							"          \"type\": \"integer\"",
+							"        },",
+							"        \"createdDate\": {",
+							"          \"type\": \"string\"",
+							"        },",
+							"        \"modifiedDate\": {",
+							"          \"type\": \"string\"",
+							"        },",
+							"        \"isActive\": {",
+							"          \"type\": \"boolean\"",
+							"        }",
+							"      },",
+							"      \"required\": [",
+							"        \"customerName\",",
+							"        \"purchasesProduct\",",
+							"        \"paymentType\",",
+							"        \"id\",",
+							"        \"createdDate\",",
+							"        \"modifiedDate\",",
+							"        \"isActive\"",
+							"      ]",
+							"    }",
+							"  ]",
+							"}",
+							"pm.test(\"Validating Schema\", function () {",
+							"    pm.response.to.have.jsonSchema(schema);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -71,6 +125,19 @@
 		},
 		{
 			"name": "InsertCustomer",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Validating data insert\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -95,6 +162,73 @@
 						"v1",
 						"Customer",
 						"InsertCustomer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateCustomer",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Validating update\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": 0,\n  \"createdDate\": \"2021-07-28T16:49:54.407Z\",\n  \"modifiedDate\": \"2021-07-28T16:49:54.407Z\",\n  \"isActive\": true,\n  \"customerName\": \"string\",\n  \"purchasesProduct\": \"string\",\n  \"paymentType\": \"string\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5001/api/v1/Customer/UpdateCustomer",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v1",
+						"Customer",
+						"UpdateCustomer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:5001/api/v1/Customer/DeleteCustomer/3",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v1",
+						"Customer",
+						"DeleteCustomer",
+						"3"
 					]
 				}
 			},
