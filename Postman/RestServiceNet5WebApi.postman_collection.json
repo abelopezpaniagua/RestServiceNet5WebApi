@@ -13,7 +13,7 @@
 					"script": {
 						"exec": [
 							"pm.test(\"Request a valid id\", function () {",
-							"    pm.response.to.have.status(200);",
+							"    pm.response.to.have.status(404);",
 							"});",
 							"",
 							"",
@@ -27,7 +27,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://localhost:5001/api/v1/Customer/GetCustomer?id=1",
+					"raw": "https://localhost:5001/api/v1/Customer/GetCustomer?id=4",
 					"protocol": "https",
 					"host": [
 						"localhost"
@@ -42,7 +42,7 @@
 					"query": [
 						{
 							"key": "id",
-							"value": "1"
+							"value": "4"
 						}
 					]
 				}
@@ -212,7 +212,7 @@
 			"response": []
 		},
 		{
-			"name": "Delete",
+			"name": "DeleteCustomer",
 			"event": [
 				{
 					"listen": "test",
@@ -247,6 +247,55 @@
 							"key": "Id",
 							"value": "3"
 						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "WeatherForecast",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:5001/api/v1/WeatherForecast/api/v1/Freezing/Freezing2",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v1",
+						"WeatherForecast",
+						"api",
+						"v1",
+						"Freezing",
+						"Freezing2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteWeatherForecast",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:5001/api/v1/WeatherForecast/api/v1/2",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v1",
+						"WeatherForecast",
+						"api",
+						"v1",
+						"2"
 					]
 				}
 			},
