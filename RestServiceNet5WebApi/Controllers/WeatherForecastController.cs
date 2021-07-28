@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace RestServiceNet5WebApi.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/v1/[controller]")]
     public class WeatherForecastController : ControllerBase
     {
         private static readonly string[] Summaries = new[]
@@ -34,6 +34,29 @@ namespace RestServiceNet5WebApi.Controllers
                 Summary = Summaries[rng.Next(Summaries.Length)]
             })
             .ToArray();
+        }
+
+        [HttpPut("api/v1/{ForecastOldName}/{ForecastNewName}")]
+        public IActionResult UpdateWeatherForecast(string ForecastOldName, string ForecastNewName)
+        {
+            var positions = Summaries.Select((v, i) => new { Index = i, Value = v })
+                               .Where(p => p.Value == ForecastOldName)
+                               .Select(p => p.Index);
+
+            foreach (int position in positions)
+            {
+                Summaries[position] = ForecastNewName;
+            }
+
+            return Ok(Summaries);
+
+        }
+
+        [HttpDelete("api/v1/{ForecastPosition}")]
+        public IActionResult DeleteWeatherForecast(int ForecastPosition)
+        {
+            Summaries[ForecastPosition] = "";
+            return Ok(Summaries);
         }
     }
 }
