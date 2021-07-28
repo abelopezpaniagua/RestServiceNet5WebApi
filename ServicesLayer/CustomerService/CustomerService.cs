@@ -28,5 +28,17 @@ namespace ServicesLayer.CustomerService
         {
             _repository.Insert(customer);
         }
+
+        public void UpdateCustomer(Customer customer)
+        {
+            _repository.Update(customer);
+        }
+
+        public void DeleteCustomer(int id)
+        {
+            Customer customer = GetCustomer(id);
+            _repository.Remove(customer);
+            _repository.SaveChanges();
+        }
     }
 }

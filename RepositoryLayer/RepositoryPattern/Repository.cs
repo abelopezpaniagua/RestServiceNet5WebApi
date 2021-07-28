@@ -38,6 +38,32 @@ namespace RepositoryLayer.RepositoryPattern
             _applicationDBContext.SaveChanges();
         }
 
+        public void Update(T entity)
+        {
+            if (entity == null)
+                throw new ArgumentException("entity");
+
+            entities.Update(entity);
+            _applicationDBContext.SaveChanges();
+        }
+
+        public void Delete(T entity)
+        {
+            if (entity == null)
+                throw new ArgumentException("entity");
+
+            entities.Remove(entity);
+            _applicationDBContext.SaveChanges();
+        }
+
+        public void Remove(T entity)
+        {
+            if (entity == null)
+                throw new ArgumentException("entity");
+
+            entities.Remove(entity);
+        }
+
         public void SaveChanges()
         {
             _applicationDBContext.SaveChanges();

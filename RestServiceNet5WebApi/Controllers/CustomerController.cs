@@ -51,5 +51,19 @@ namespace RestServiceNet5WebApi.Controllers
          
             return Ok("Data inserted");
         }
+
+        [HttpPut(nameof(UpdateCustomer))]
+        public IActionResult UpdateCustomer(Customer customer)
+        {
+            _customerService.UpdateCustomer(customer);
+            return Ok("Updation done");
+        }
+
+        [HttpDelete(nameof(DeleteCustomer))]
+        public IActionResult DeleteCustomer(int Id)
+        {
+            _customerService.DeleteCustomer(Id);
+            return Ok("Data Deleted");
+        }
     }
 }
